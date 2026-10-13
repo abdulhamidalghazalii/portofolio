@@ -74,13 +74,7 @@ export const Footer: React.FC<FooterProps> = ({ personal }) => {
           <div className="flex items-center gap-1">
             <span>© {new Date().getFullYear()} {personal.name}. All rights reserved.</span>
           </div>
-
-          <div className="flex items-center gap-1.5 text-slate-400">
-            <span>Dibuat dengan</span>
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" />
-            <span>menggunakan React, TypeScript, Three.js & Tailwind CSS.</span>
-          </div>
-
+        
           {/* Social icons */}
           <div className="flex items-center gap-2">
             <a

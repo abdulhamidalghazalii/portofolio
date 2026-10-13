@@ -191,7 +191,7 @@ export const Contact: React.FC<ContactProps> = ({ personal }) => {
                   Kirim Pesan Langsung
                 </h3>
                 <span className="text-[11px] font-mono px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
-                  Target: {personal.email}
+                  to {personal.email}
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-400 mb-6">
@@ -226,7 +226,7 @@ export const Contact: React.FC<ContactProps> = ({ personal }) => {
                     <input
                       type="text"
                       required
-                      placeholder="Contoh: Budi Santoso"
+                      placeholder=""
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-colors"
