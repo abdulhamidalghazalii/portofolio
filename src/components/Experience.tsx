@@ -1,6 +1,8 @@
 import React from 'react';
 import { Briefcase, Calendar, MapPin, CheckCircle2, Building2 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import type { ExperienceItem } from '../types/portfolio';
+import { ScrollReveal } from './ScrollReveal';
 
 interface ExperienceProps {
   experiences: ExperienceItem[];
@@ -8,30 +10,29 @@ interface ExperienceProps {
 
 export const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
   return (
-    <section id="experience" className="py-24 relative overflow-hidden bg-slate-950/30">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 right-10 w-96 h-96 ambient-glow-indigo rounded-full blur-3xl opacity-20 pointer-events-none" />
-
+    <section id="experience" className="py-24 relative overflow-hidden z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono mb-3">
-            <Briefcase className="w-3.5 h-3.5" />
-            <span>PENGALAMAN KERJA</span>
+        {/* Section Header with ScrollReveal */}
+        <ScrollReveal>
+          <div className="flex flex-col items-center text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-3 shadow-[0_0_12px_rgba(52,211,153,0.15)]">
+              <Briefcase className="w-3.5 h-3.5" />
+              <span>PENGALAMAN KERJA // CAREER</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              Pengalaman &amp; <span className="gradient-text-accent">Kontribusi Nyata</span>
+            </h2>
+            <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl">
+              Pengalaman praktis dalam merancang, membangun, dan mendistribusikan sistem web terpadu untuk operasional perusahaan.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Perjalanan Karir & <span className="gradient-text-accent">Kontribusi Nyata</span>
-          </h2>
-          <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl">
-            Rekam jejak kontribusi engineering profesional dalam membangun sistem berskala tinggi dan memimpin inisiatif teknologi.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Timeline Container */}
         <div className="relative max-w-4xl mx-auto">
           {/* Vertical Glowing Timeline Line */}
-          <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-indigo-500 via-purple-500 to-sky-500 -translate-x-1/2 opacity-30 sm:opacity-50" />
+          <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-sky-400 via-indigo-500 to-purple-500 -translate-x-1/2 opacity-50 shadow-[0_0_8px_#38bdf8]" />
 
           <div className="space-y-12">
             {experiences.map((exp, index) => {
@@ -45,20 +46,25 @@ export const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
                   }`}
                 >
                   {/* Timeline Center Node */}
-                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-[#030712] border-2 border-indigo-500 shadow-[0_0_12px_#6366f1] flex items-center justify-center z-10">
-                    <div className="w-2.5 h-2.5 rounded-full bg-indigo-400 animate-ping" />
+                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-[#030712] border-2 border-cyan-400 flex items-center justify-center z-10 shadow-[0_0_12px_#38bdf8]">
+                    <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
                   </div>
 
                   {/* Empty spacer for alternating grid on desktop */}
                   <div className="hidden sm:block sm:w-1/2" />
 
-                  {/* Content Card */}
+                  {/* Content Card with ScrollReveal */}
                   <div
                     className={`w-full sm:w-1/2 pl-12 sm:pl-0 ${
                       isEven ? 'sm:pr-10' : 'sm:pl-10'
                     }`}
                   >
-                    <div className="glass-panel p-6 sm:p-7 rounded-3xl glass-panel-hover border border-white/10 shadow-xl space-y-4">
+                    <ScrollReveal direction={isEven ? 'left' : 'right'} delay={0.1}>
+                      <motion.div
+                        whileHover={{ y: -4, scale: 1.01 }}
+                        transition={{ duration: 0.2 }}
+                        className="glass-panel p-6 sm:p-7 rounded-3xl border border-white/10 hover:border-cyan-500/30 shadow-xl space-y-4 hover:shadow-[0_0_25px_rgba(56,189,248,0.15)] transition-all"
+                      >
                       
                       {/* Top Badges */}
                       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -116,7 +122,8 @@ export const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
                           </span>
                         ))}
                       </div>
-                    </div>
+                      </motion.div>
+                    </ScrollReveal>
                   </div>
                 </div>
               );

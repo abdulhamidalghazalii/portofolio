@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, MapPin, Send, CheckCircle2, MessageSquare, Copy, Check, Clock, AlertCircle, ExternalLink } from 'lucide-react';
 import type { PersonalInfo } from '../types/portfolio';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
+import { ScrollReveal } from './ScrollReveal';
 
 interface ContactProps {
   personal: PersonalInfo;
@@ -26,7 +27,6 @@ export const Contact: React.FC<ContactProps> = ({ personal }) => {
     setErrorMessage('');
 
     try {
-      // Send directly to the user's email via FormSubmit AJAX endpoint
       const response = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(personal.email)}`, {
         method: 'POST',
         headers: {
@@ -57,7 +57,6 @@ export const Contact: React.FC<ContactProps> = ({ personal }) => {
       }
     } catch (err: unknown) {
       console.warn('Direct API email dispatch notice:', err);
-      // Fallback: Open mailto client directly so the email is 100% delivered
       const mailtoUrl = `mailto:${personal.email}?subject=${encodeURIComponent(
         formState.subject || 'Pesan dari Pengunjung Portfolio'
       )}&body=${encodeURIComponent(
@@ -77,31 +76,31 @@ export const Contact: React.FC<ContactProps> = ({ personal }) => {
   };
 
   return (
-    <section id="contact" className="py-24 relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute bottom-0 right-1/3 w-[500px] h-[500px] ambient-glow-indigo rounded-full blur-3xl opacity-25 pointer-events-none" />
-
+    <section id="contact" className="py-24 relative overflow-hidden z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono mb-3">
-            <MessageSquare className="w-3.5 h-3.5" />
-            <span>HUBUNGI SAYA</span>
+        {/* Section Header with ScrollReveal */}
+        <ScrollReveal>
+          <div className="flex flex-col items-center text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3 shadow-[0_0_12px_rgba(56,189,248,0.15)]">
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>HUBUNGI SAYA // TRANSMISSION</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              Mari Mulai <span className="gradient-text-accent">Kolaborasi Baru</span>
+            </h2>
+            <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl">
+              Punya peluang kerja, tawaran posisi, atau kebutuhan pengembangan sistem web? Kirimkan pesan langsung melalui formulir atau kontak di bawah ini.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Mari Mulai <span className="gradient-text-accent">Kolaborasi Baru</span>
-          </h2>
-          <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl">
-            Punya ide proyek, tawaran posisi kerja, atau sekadar ingin bertukar wawasan seputar teknologi web? Jangan ragu untuk menghubungi saya!
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Contact Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          {/* Left Column: Direct Contact Info & Socials */}
+          {/* Left Column with ScrollReveal */}
           <div className="lg:col-span-5 space-y-6">
+            <ScrollReveal direction="left" delay={0.1}>
             <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 shadow-xl space-y-6">
               <div>
                 <h3 className="text-xl font-bold text-white mb-1">
@@ -141,6 +140,7 @@ export const Contact: React.FC<ContactProps> = ({ personal }) => {
 
               {/* Location & Availability */}
               <div className="space-y-3">
+
                 <div className="flex items-center gap-3 text-xs sm:text-sm text-slate-300">
                   <div className="p-2 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/20">
                     <MapPin className="w-4 h-4" />
@@ -154,6 +154,21 @@ export const Contact: React.FC<ContactProps> = ({ personal }) => {
                   </div>
                   <span><strong>Ketersediaan:</strong> {personal.availability}</span>
                 </div>
+              </div>
+
+              {/* Resume download prompt card */}
+              <div className="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-between gap-3">
+                <div className="text-xs text-slate-300">
+                  <div className="font-semibold text-white">Butuh Dokumen Lengkap?</div>
+                  <div className="text-slate-400 text-[11px]">Unduh CV resmi format PDF</div>
+                </div>
+                <a
+                  href="/resume-abdul-hamid-alghazali.pdf"
+                  download="Resume_Abdul_Hamid_Al_Ghazali.pdf"
+                  className="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-md shadow-indigo-600/30 transition-colors shrink-0"
+                >
+                  Unduh CV
+                </a>
               </div>
 
               {/* Social Channels */}
@@ -181,10 +196,12 @@ export const Contact: React.FC<ContactProps> = ({ personal }) => {
                 </div>
               </div>
             </div>
+            </ScrollReveal>
           </div>
 
           {/* Right Column: Interactive Form */}
           <div className="lg:col-span-7">
+            <ScrollReveal direction="right" delay={0.2}>
             <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 shadow-xl">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                 <h3 className="text-xl font-bold text-white">
@@ -312,6 +329,7 @@ export const Contact: React.FC<ContactProps> = ({ personal }) => {
                 </div>
               </form>
             </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>

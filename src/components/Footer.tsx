@@ -15,11 +15,10 @@ export const Footer: React.FC<FooterProps> = ({ personal }) => {
   const navLinks = [
     { name: 'Beranda', href: '#hero' },
     { name: 'Tentang', href: '#about' },
-    { name: 'Keahlian', href: '#skills' },
     { name: 'Proyek', href: '#projects' },
     { name: 'Pengalaman', href: '#experience' },
-    { name: 'Pendidikan', href: '#education' },
-    { name: 'Sertifikasi', href: '#certifications' },
+    { name: 'Keahlian', href: '#skills' },
+    { name: 'Kredensial', href: '#education' },
     { name: 'Kontak', href: '#contact' },
   ];
 

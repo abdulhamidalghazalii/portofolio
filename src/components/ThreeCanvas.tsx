@@ -68,23 +68,23 @@ function createBacksideTexture(): THREE.CanvasTexture {
     ctx.fillStyle = '#38bdf8';
     ctx.fillText('FULL-STACK WEB DEVELOPER', 256, 360);
 
-    ctx.font = '15px monospace';
+    ctx.font = '14px monospace';
     ctx.fillStyle = '#a5b4fc';
-    ctx.fillText('TELKOM UNIVERSITY', 256, 400);
+    ctx.fillText('TELKOM UNIVERSITY PURWOKERTO', 256, 400);
 
     ctx.font = '14px monospace';
     ctx.fillStyle = '#cbd5e1';
-    ctx.fillText('BEKASI, INDONESIA', 256, 435);
+    ctx.fillText('BEKASI, JAWA BARAT', 256, 435);
 
-    // PKL Industry Tag
-    ctx.fillStyle = 'rgba(16, 185, 129, 0.15)';
+    // Experience Tag
+    ctx.fillStyle = 'rgba(14, 165, 233, 0.15)';
     ctx.fillRect(86, 475, 340, 36);
-    ctx.strokeStyle = 'rgba(16, 185, 129, 0.5)';
+    ctx.strokeStyle = 'rgba(56, 189, 248, 0.5)';
     ctx.lineWidth = 1.5;
     ctx.strokeRect(86, 475, 340, 36);
-    ctx.fillStyle = '#34d399';
+    ctx.fillStyle = '#38bdf8';
     ctx.font = 'bold 13px monospace';
-    ctx.fillText('PKL: PT BOLTZ INDONESIA (3 BULAN)', 256, 498);
+    ctx.fillText('EXP: PT BOTZ INDONESIA (HRIS)', 256, 498);
 
     // Tech Stacks Pill
     ctx.fillStyle = 'rgba(99, 102, 241, 0.2)';
@@ -93,12 +93,12 @@ function createBacksideTexture(): THREE.CanvasTexture {
     ctx.strokeRect(86, 535, 340, 40);
     ctx.fillStyle = '#c7d2fe';
     ctx.font = 'bold 13px monospace';
-    ctx.fillText('REACT • LARAVEL • THREE.JS • APPSCRIPT', 256, 560);
+    ctx.fillText('REACT • LARAVEL • POSTGRES • DOCKER', 256, 560);
 
     // Chip footer ID
     ctx.fillStyle = '#64748b';
     ctx.font = '11px monospace';
-    ctx.fillText('ID: VERIFIED DEV // TELKOM-ENG-2024', 256, 615);
+    ctx.fillText('ID: VERIFIED // S1 TEKNIK INFORMATIKA', 256, 615);
   }
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;

@@ -1,188 +1,176 @@
 import type { PortfolioData } from '../types/portfolio';
 
-/**
- * =========================================================================
- * KONFIGURASI DATA PORTFOLIO - ABDUL HAMID AL-GHAZALI
- * =========================================================================
- * Seluruh informasi pribadi dan konten portfolio terpusat pada file ini.
- * =========================================================================
- */
-
 export const portfolioData: PortfolioData = {
   personal: {
-    // Identitas Utama
     name: "Abdul Hamid Al-Ghazali",
-    role: "Full-Stack Web Developer & Software Engineer",
-    tagline: "Mahasiswa Telkom University yang berfokus pada Full-Stack Web Development, sistem terstruktur, dan pengalaman digital interaktif.",
-    shortBio: "Full-Stack Web Developer dari Telkom University berdomisili di Bekasi. Berpengalaman membangun aplikasi web end-to-end, termasuk sistem Manajemen Data Absensi selama PKL di PT BOLTZ INDONESIA.",
+    role: "Web Developer",
+    tagline: "Fresh graduate S1 Teknik Informatika Telkom University Purwokerto yang berfokus pada pengembangan aplikasi web Full-Stack dan pengelolaan basis data yang efektif.",
+    shortBio: "Memiliki pengalaman dalam membangun aplikasi berbasis web end-to-end, baik dari sisi frontend maupun backend, serta mengelola basis data relasional (PostgreSQL, MySQL, SQLite) untuk mendukung kebutuhan operasional pengguna.",
     fullBio: [
-      "Halo! Saya Abdul Hamid Al-Ghazali, mahasiswa dari Telkom University yang berdomisili di Bekasi, Indonesia.",
-      "Sebagai seorang Full-Stack Web Developer, saya memiliki antusiasme tinggi dalam merancang aplikasi web yang solutif, efisien, dan memiliki struktur kode yang bersih.",
-      "Saya memiliki pengalaman praktis selama menjalani PKL di PT BOLTZ INDONESIA selama 3 bulan, di mana saya merancang dan membangun proyek Sistem Manajemen Data Absensi karyawan secara full-stack dari basis data hingga tampilan antarmuka pengguna."
+      "Fresh graduate S1 Teknik Informatika dari Telkom University Purwokerto yang memiliki ketertarikan tinggi pada bidang pengembangan website (Web Development).",
+      "Memiliki pengalaman dalam membangun aplikasi berbasis web, baik dari sisi frontend maupun backend, serta mengelola database untuk mendukung pengolahan data yang lebih efektif dan efisien.",
+      "Senang mempelajari teknologi baru, mengembangkan solusi digital, dan mencari cara untuk membuat sistem yang lebih praktis dan mudah digunakan. Saya pribadi yang teliti, cepat belajar, mampu bekerja sama dalam tim, dan siap mengembangkan kemampuan serta berkontribusi dalam membangun aplikasi web yang sesuai dengan kebutuhan pengguna."
     ],
     email: "abdulhamidalghazali62@gmail.com",
     avatarUrl: "/profile.jpg",
-    location: "Bekasi, Jawa Barat, Indonesia",
-    phone: "+62 8xx-xxxx-xxxx",
-    university: "Telkom University",
+    location: "Bekasi, Jawa Barat",
+    university: "Telkom University Purwokerto",
     github: "https://github.com/abdulhamidalghazalii",
     linkedin: "https://linkedin.com/in/abdulhamidalghazalii",
     twitter: "https://twitter.com/abdulhamid",
-    resumeUrl: "#",
-    availability: "Terbuka untuk Peluang Kerja, Magang & Proyek Web",
-    stats: [
-      { label: "Durasi PKL", value: "3 Bulan", helper: "di PT BOLTZ INDONESIA" },
-      { label: "Fokus Bidang", value: "Full-Stack", helper: "Web Development & DB" },
-      { label: "Pendidikan", value: "Telkom Univ", helper: "Informatika / Teknologi" },
-      { label: "Domisili", value: "Bekasi", helper: "Jawa Barat, Indonesia" }
-    ]
+    resumeUrl: "/resume-abdul-hamid-alghazali.pdf",
+    availability: "Terbuka untuk Peluang Kerja & Proyek Web",
+    stats: []
   },
 
   skillCategories: [
     {
-      category: "Frontend & Web UI",
-      description: "Pengembangan antarmuka responsif, modern, dan interaktif.",
+      category: "Frontend Development",
+      description: "Pengembangan antarmuka responsif, modern, dan ramah pengguna.",
       items: [
-        { name: "React / Modern React", level: 90, highlight: true },
-        { name: "TypeScript / JavaScript", level: 88, highlight: true },
+        { name: "HTML5 & CSS3", level: 95, highlight: true },
+        { name: "JavaScript (ES6+)", level: 90, highlight: true },
+        { name: "React", level: 88, highlight: true },
         { name: "Tailwind CSS", level: 92, highlight: true },
-        { name: "HTML5 & Modern CSS", level: 95 },
-        { name: "Responsive Web Design", level: 92 },
-        { name: "Framer Motion", level: 82 }
+        { name: "Bootstrap", level: 90 },
+        { name: "Responsive UI", level: 92 }
       ]
     },
     {
-      category: "Backend & Basis Data",
-      description: "Logika server, API RESTful, dan manajemen basis data absensi/bisnis.",
+      category: "Backend & API",
+      description: "Logika server, otentikasi aman, dan integrasi REST API.",
       items: [
-        { name: "Laravel (PHP)", level: 88, highlight: true },
-        { name: "Node.js & Express", level: 86, highlight: true },
-        { name: "RESTful API Architecture", level: 88, highlight: true },
-        { name: "Database Management (MySQL / PostgreSQL)", level: 85, highlight: true },
-        { name: "User Authentication & Authorization", level: 84 },
-        { name: "CRUD & Data Validation", level: 90 }
+        { name: "PHP", level: 88, highlight: true },
+        { name: "Laravel", level: 88, highlight: true },
+        { name: "RESTful API", level: 90, highlight: true },
+        { name: "Authentication & Security", level: 86, highlight: true },
+        { name: "CRUD Operations", level: 92 },
+        { name: "Node.js (Fundamental)", level: 80 }
       ]
     },
     {
-      category: "3D & Creative Visuals",
-      description: "Eksplorasi grafis interaktif berbasis web 3D.",
+      category: "Basis Data (Database)",
+      description: "Perancangan skema, normalisasi, dan optimasi query data.",
       items: [
-        { name: "Three.js", level: 80, highlight: true },
-        { name: "React Three Fiber (R3F)", level: 80 },
-        { name: "@react-three/drei", level: 78 },
-        { name: "Interactive Canvas Animations", level: 82 }
+        { name: "PostgreSQL", level: 88, highlight: true },
+        { name: "MySQL", level: 90, highlight: true },
+        { name: "SQLite", level: 85 },
+        { name: "Database Schema Design", level: 86 }
       ]
     },
     {
-      category: "Tools & Metodologi",
-      description: "Alat pengembangan harian, otomasi, manajemen kode, dan alur kerja tim.",
+      category: "Tools & Deployment",
+      description: "Alat kolaborasi, container, version control, dan alur rilis.",
       items: [
-        { name: "Google Apps Script (AppScript)", level: 88, highlight: true },
-        { name: "Git & GitHub Workflow", level: 90, highlight: true },
+        { name: "Git & GitHub", level: 90, highlight: true },
+        { name: "Docker", level: 80, highlight: true },
+        { name: "Postman (API Testing)", level: 88 },
         { name: "Vite Bundler", level: 88 },
-        { name: "Postman (API Testing)", level: 86 },
-        { name: "Workflow & Data Automation", level: 85 },
-        { name: "Clean Code & Problem Solving", level: 85 }
+        { name: "Server Deployment", level: 84 }
       ]
     }
   ],
 
   projects: [
     {
-      id: "project-absensi-boltz",
-      title: "Sistem Manajemen Data Absensi Karyawan",
-      tagline: "Aplikasi Full-Stack Web untuk digitalisasi presensi di PT BOLTZ INDONESIA",
-      description: "Project sistem informasi kehadiran yang dikembangkan selama masa PKL 3 bulan di PT BOLTZ INDONESIA. Aplikasi ini mempermudah pencatatan kehadiran harian, monitoring data kehadiran karyawan, dan rekapitulasi data absensi secara real-time dan terstruktur.",
+      id: "project-hris-botz",
+      title: "Sistem HRIS & Manajemen Data Pekerja",
+      tagline: "Aplikasi Web HRIS end-to-end untuk digitalisasi data karyawan & operasional",
+      description: "Merancang dan mengembangkan aplikasi sistem HRIS berbasis web dari tahap awal hingga dapat digunakan oleh perusahaan PT Botz Indonesia. Mencakup fitur manajemen profil pekerja, rekapitulasi kehadiran, manajemen jadwal kerja, dan sistem Payroll terstruktur.",
       category: "Full Stack",
-      tags: ["Full Stack", "React", "Node.js", "Express", "Database Management", "Tailwind CSS"],
+      tags: ["Full Stack", "Laravel", "React", "PostgreSQL", "REST API", "Tailwind CSS"],
       githubUrl: "https://github.com/abdulhamidalghazalii",
       demoUrl: "https://github.com/abdulhamidalghazalii",
       featured: true,
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
       highlights: [
-        "Dikembangkan langsung selama Praktik Kerja Lapangan (PKL) 3 bulan di PT BOLTZ INDONESIA.",
-        "Mengelola alur pencatatan kehadiran karyawan dan rekapitulasi presensi secara otomatis.",
-        "Arsitektur Full-Stack modular dengan antarmuka yang bersih, intuitif, dan responsif untuk kebutuhan operasional perusahaan."
+        "Membangun fitur Manajemen Data Pekerja dengan operasi CRUD lengkap, jadwal kerja, dan payroll.",
+        "Mengembangkan antarmuka pengguna responsif dan user-friendly agar mudah diakses dari berbagai perangkat.",
+        "Mengintegrasikan basis data aman untuk menyimpan data rahasia dan riwayat kehadiran pekerja.",
+        "Melakukan testing, debugging, hingga deployment ke server perusahaan."
       ],
-      role: "Fullstack Web Developer (PKL)",
-      period: "3 Bulan (PT BOLTZ INDONESIA)"
+      role: "FullStack Web Developer",
+      period: "07/2025 – 10/2025 (PT Botz Indonesia)"
     },
     {
-      id: "project-3d-portfolio",
-      title: "Interactive 3D Developer Portfolio",
-      tagline: "Website portfolio personal berkinerja tinggi dengan visual 3D WebGL",
-      description: "Platform portfolio interaktif dengan integrasi Three.js, React Three Fiber, dan Tailwind CSS untuk menampilkan profil rekayasa web secara visual dan dinamis.",
-      category: "3D & Graphics",
-      tags: ["React", "Three.js", "R3F", "TypeScript", "Tailwind CSS"],
+      id: "project-portfolio-web",
+      title: "Modern Developer Portfolio",
+      tagline: "Platform portofolio web berkinerja tinggi dengan antarmuka modern",
+      description: "Website portofolio rekayasa web yang dirancang dengan performa cepat, responsivitas tinggi, dan integrasi resume digital untuk mempermudah perekrut meninjau profil teknis.",
+      category: "Frontend",
+      tags: ["React", "TypeScript", "Tailwind CSS", "Vite", "Three.js"],
       githubUrl: "https://github.com/abdulhamidalghazalii",
-      demoUrl: "https://github.com/abdulhamidalghazalii",
+      demoUrl: "https://portofolio-abdulhamidalghazali.vercel.app",
       featured: true,
-      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=900&q=80",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
       highlights: [
-        "Implementasi mesh distorsi dinamis dan sistem partikel Three.js yang dioptimalkan.",
-        "Desain responsif dengan estetika dark obsidian dan skor performa tinggi.",
-        "Navigasi halus dengan transisi komponen terstruktur."
+        "Desain antarmuka profesional, bersih, dan cepat dimuat di seluruh perangkat.",
+        "Integrasi fitur unduh resume CV langsung dalam format PDF.",
+        "Arsitektur komponen modular dan efisiensi informasi yang optimal."
       ],
-      role: "Frontend & 3D Web Developer",
+      role: "Web Developer",
       period: "2024"
     },
     {
       id: "project-cloud-dashboard",
       title: "Data Analytics & Management Dashboard",
-      tagline: "Dashboard visualisasi data interaktif dengan metrik terstruktur",
-      description: "Aplikasi dashboard analitik dengan filter data, grafik performa, dan manajemen pengguna untuk pemantauan data secara terorganisir.",
+      tagline: "Dashboard analitik interaktif untuk visualisasi dan manajemen data",
+      description: "Aplikasi dashboard data dengan tabel interaktif, filter status dinamis, dan pengelolaan pengguna untuk pemantauan data secara terorganisir.",
       category: "Full Stack",
-      tags: ["React", "TypeScript", "Tailwind CSS", "Node.js", "REST API"],
+      tags: ["React", "TypeScript", "PHP", "MySQL", "REST API"],
       githubUrl: "https://github.com/abdulhamidalghazalii",
       demoUrl: "https://github.com/abdulhamidalghazalii",
       featured: false,
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+      image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=900&q=80",
       highlights: [
-        "Penyajian data visual dengan chart interaktif dan filter status kustom.",
+        "Penyajian data visual dengan chart terstruktur dan filter status kustom.",
         "API backend untuk melayani pemrosesan data dengan query optimal.",
-        "Dukungan mode tampilan gelap yang ramah di mata pengguna."
+        "Antarmuka yang bersih dan mudah dinavigasi oleh pengguna."
       ],
-      role: "Fullstack Developer",
+      role: "FullStack Developer",
       period: "2024"
     }
   ],
 
   experiences: [
     {
-      id: "exp-boltz",
-      role: "Fullstack Web Developer (PKL)",
-      company: "PT BOLTZ INDONESIA",
+      id: "exp-botz",
+      role: "FullStack Web Developer",
+      company: "PT Botz Indonesia",
       location: "Indonesia",
-      type: "Praktik Kerja Lapangan (PKL)",
-      period: "3 Bulan",
-      description: "Menjalani Praktik Kerja Lapangan (PKL) selama 3 bulan sebagai Fullstack Web Developer, merancang dan mengembangkan proyek Sistem Manajemen Data Absensi karyawan.",
+      type: "Pengalaman Kerja",
+      period: "07/2025 – 10/2025",
+      description: "Merancang dan mengembangkan aplikasi sistem HRIS berbasis web dari tahap awal hingga dapat digunakan secara langsung oleh operasional perusahaan.",
       achievements: [
-        "Merancang dan membangun arsitektur sistem Manajemen Data Absensi secara end-to-end dari frontend hingga backend dan database.",
-        "Mengimplementasikan fitur pencatatan absensi karyawan, rekapitulasi data kehadiran, dan validasi data secara terstruktur.",
-        "Memastikan antarmuka aplikasi intuitif dan mudah dioperasikan oleh seluruh staf dan manajemen perusahaan."
+        "Membangun fitur Manajemen Data Pekerja mencakup operasi CRUD untuk profil karyawan, rekapitulasi kehadiran, manajemen jadwal kerja, dan Payroll.",
+        "Mengembangkan antarmuka pengguna (frontend) yang responsif dan ramah pengguna (user-friendly) agar mudah diakses oleh karyawan melalui berbagai perangkat.",
+        "Merancang arsitektur backend dan mengintegrasikan basis data (database) dengan aman untuk menyimpan informasi rahasia dan riwayat kehadiran pekerja.",
+        "Melakukan pengujian (testing) dan perbaikan bug (debugging) untuk memastikan website berjalan lancar tanpa kendala sebelum dideploy.",
+        "Melakukan proses deployment ke server perusahaan hingga siap digunakan."
       ],
-      technologies: ["React", "TypeScript", "Node.js", "Express", "Database Management", "Tailwind CSS", "RESTful API"]
+      technologies: ["PHP", "Laravel", "React", "PostgreSQL", "MySQL", "REST API", "Tailwind CSS", "Bootstrap"]
     }
   ],
 
   education: [
     {
-      id: "edu-telkom",
-      degree: "S1 Informatika / Rekayasa Perangkat Lunak",
-      institution: "Telkom University",
-      location: "Bandung / Bekasi, Indonesia",
-      period: "Aktif / Mahasiswa",
-      gpa: "Predikat Baik",
+      id: "edu-telkom-pwt",
+      degree: "S1 Teknik Informatika (Informatics Engineering)",
+      institution: "Telkom University Purwokerto",
+      location: "Purwokerto / Bekasi",
+      period: "09/2022 – 08/2026",
+      gpa: "Bachelor of Science",
       details: [
         "Mempelajari fundamental Rekayasa Perangkat Lunak, Struktur Data & Algoritma, Pemrograman Web, dan Sistem Basis Data.",
-        "Aktif dalam eksplorasi teknologi pengembangan aplikasi web modern (Frontend & Backend).",
-        "Menyelesaikan implementasi proyek nyata di industri melalui program PKL di PT BOLTZ INDONESIA."
+        "Memiliki pemahaman mendalam dalam membangun arsitektur aplikasi berbasis web (Frontend & Backend).",
+        "Menyelesaikan implementasi sistem nyata HRIS berbasis web pada lingkungan industri."
       ],
       courses: [
-        "Pemrograman Web Lanjut",
-        "Basis Data & Manajemen Data",
+        "Pemrograman Web",
+        "Sistem Basis Data",
         "Struktur Data & Algoritma",
-        "Rekayasa Perangkat Lunak"
+        "Rekayasa Perangkat Lunak",
+        "Jaringan Komputer"
       ]
     }
   ],
@@ -190,21 +178,22 @@ export const portfolioData: PortfolioData = {
   certifications: [
     {
       id: "cert-1",
-      title: "Full-Stack Web Development Course",
-      issuer: "Telkom University & Online Learning",
-      issueDate: "2024",
-      credentialId: "TELKOM-DEV-2024",
-      credentialUrl: "https://github.com/abdulhamidalghazalii",
-      skills: ["React", "Node.js", "Database Management", "RESTful API"]
+      title: "FullStack Web Developer HRIS Project",
+      issuer: "PT Botz Indonesia",
+      issueDate: "2025",
+      credentialId: "BOTZ-DEV-2025",
+      credentialUrl: "/resume-abdul-hamid-alghazali.pdf",
+      skills: ["FullStack Development", "Sistem HRIS", "Database Security", "Server Deployment"]
     },
     {
       id: "cert-2",
-      title: "Sertifikat Praktik Kerja Lapangan (PKL)",
-      issuer: "PT BOLTZ INDONESIA",
-      issueDate: "3 Bulan PKL",
-      credentialId: "BOLTZ-PKL-XXXX",
-      credentialUrl: "https://github.com/abdulhamidalghazalii",
-      skills: ["Fullstack Web Development", "Manajemen Data Absensi", "Team Collaboration"]
+      title: "S1 Teknik Informatika Degree Program",
+      issuer: "Telkom University Purwokerto",
+      issueDate: "2022 – 2026",
+      credentialId: "TELKOM-PWT-INFORMATIKA",
+      credentialUrl: "/resume-abdul-hamid-alghazali.pdf",
+      skills: ["Web Development", "Software Engineering", "Algorithms", "Database Management"]
     }
   ]
 };
+

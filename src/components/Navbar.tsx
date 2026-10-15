@@ -14,10 +14,10 @@ export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
   const navLinks = [
     { name: 'Beranda', href: '#hero' },
     { name: 'Tentang', href: '#about' },
-    { name: 'Keahlian', href: '#skills' },
     { name: 'Proyek', href: '#projects' },
     { name: 'Pengalaman', href: '#experience' },
-    { name: 'Pendidikan', href: '#education' },
+    { name: 'Keahlian', href: '#skills' },
+    { name: 'Kredensial', href: '#education' },
     { name: 'Kontak', href: '#contact' },
   ];
 
@@ -26,7 +26,7 @@ export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
       setIsScrolled(window.scrollY > 20);
 
       // Determine active section
-      const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'education', 'contact'];
+      const sections = ['hero', 'about', 'projects', 'experience', 'skills', 'education', 'contact'];
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
@@ -101,14 +101,23 @@ export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
             })}
           </nav>
 
-          {/* Action Button */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Action Buttons */}
+          <div className="hidden md:flex items-center gap-2.5">
+            <a
+              href="/resume-abdul-hamid-alghazali.pdf"
+              download="Resume_Abdul_Hamid_Al_Ghazali.pdf"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all"
+              title="Unduh CV (PDF)"
+            >
+              <span>Unduh CV</span>
+            </a>
+
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 shadow-md shadow-indigo-600/20 hover:shadow-indigo-600/40 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 shadow-md shadow-indigo-600/20 transition-all transform hover:-translate-y-0.5"
             >
-              <span>Hubungi Saya</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <span>Hubungi</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
@@ -146,11 +155,19 @@ export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
                 </a>
               );
             })}
-            <div className="pt-2">
+            <div className="pt-2 flex flex-col gap-2">
+              <a
+                href="/resume-abdul-hamid-alghazali.pdf"
+                download="Resume_Abdul_Hamid_Al_Ghazali.pdf"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-200 bg-white/10 border border-white/10 hover:bg-white/15 transition-colors"
+              >
+                <span>Unduh Resume (PDF)</span>
+              </a>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-colors shadow-md shadow-indigo-600/30"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-colors shadow-md shadow-indigo-600/30"
               >
                 <span>Hubungi Saya</span>
                 <ArrowUpRight className="w-4 h-4" />
