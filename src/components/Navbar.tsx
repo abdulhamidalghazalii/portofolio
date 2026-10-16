@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Terminal } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import type { PersonalInfo } from '../types/portfolio';
 
 interface NavbarProps {
@@ -12,26 +12,24 @@ export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
   const [activeSection, setActiveSection] = useState('hero');
 
   const navLinks = [
-    { name: 'Beranda', href: '#hero' },
-    { name: 'Tentang', href: '#about' },
-    { name: 'Proyek', href: '#projects' },
-    { name: 'Pengalaman', href: '#experience' },
-    { name: 'Keahlian', href: '#skills' },
-    { name: 'Kredensial', href: '#education' },
-    { name: 'Kontak', href: '#contact' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'About', href: '#about' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Credentials', href: '#education' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      // Determine active section
-      const sections = ['hero', 'about', 'projects', 'experience', 'skills', 'education', 'contact'];
+      const sections = ['hero', 'projects', 'about', 'experience', 'skills', 'education', 'contact'];
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
+          if (rect.top <= 160 && rect.bottom >= 160) {
             setActiveSection(section);
             break;
           }
@@ -39,60 +37,50 @@ export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 bg-[#FFFFFF] transition-all duration-200 ${
         isScrolled
-          ? 'bg-[#030712]/80 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20 py-3'
-          : 'bg-transparent py-5'
+          ? 'border-b border-[#DEDEDE] py-3.5 shadow-[0_1px_3px_rgba(0,0,0,0.02)]'
+          : 'border-b border-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo / Brand */}
+          {/* Brand: Initial & Full Name */}
           <a
             href="#hero"
-            className="flex items-center gap-2.5 text-white group focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg p-1"
+            className="flex items-center gap-3 text-[#111111] group focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-sky-400 p-[1.5px] shadow-lg shadow-indigo-500/20 group-hover:shadow-indigo-500/40 transition-shadow overflow-hidden">
-              {personal.avatarUrl ? (
-                <img
-                  src={personal.avatarUrl}
-                  alt={personal.name}
-                  className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform"
-                />
-              ) : (
-                <div className="w-full h-full bg-[#090d16] rounded-xl flex items-center justify-center">
-                  <Terminal className="w-5 h-5 text-indigo-400 group-hover:scale-110 transition-transform" />
-                </div>
-              )}
+            <div className="w-8 h-8 rounded-none border border-[#111111] bg-[#111111] text-[#FFFFFF] flex items-center justify-center font-mono font-bold text-xs tracking-tighter transition-colors group-hover:bg-[#FFFFFF] group-hover:text-[#111111]">
+              AH
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-base sm:text-lg tracking-tight text-white group-hover:text-indigo-300 transition-colors">
+              <span className="font-semibold text-sm sm:text-base tracking-tight text-[#111111]">
                 {personal.name}
               </span>
-              <span className="text-[11px] text-slate-400 font-mono tracking-wider">
-                PORTFOLIO
+              <span className="text-[10px] text-[#777777] font-mono uppercase tracking-widest">
+                Web Developer
               </span>
             </div>
           </a>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden md:flex items-center gap-1 bg-white/[0.03] border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-md">
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
               return (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`px-3 py-1.5 rounded-full text-xs lg:text-sm font-medium transition-all ${
+                  className={`text-xs uppercase tracking-wider font-medium transition-colors py-1 ${
                     isActive
-                      ? 'text-white bg-indigo-600/40 shadow-sm border border-indigo-400/30'
-                      : 'text-slate-300 hover:text-white hover:bg-white/5'
+                      ? 'text-[#111111] font-semibold border-b border-[#111111]'
+                      : 'text-[#777777] hover:text-[#111111]'
                   }`}
                 >
                   {link.name}
@@ -102,33 +90,33 @@ export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
           </nav>
 
           {/* Action Buttons */}
-          <div className="hidden md:flex items-center gap-2.5">
+          <div className="hidden md:flex items-center gap-3">
             <a
               href="/resume-abdul-hamid-alghazali.pdf"
               download="Resume_Abdul_Hamid_Al_Ghazali.pdf"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 transition-all"
+              className="inline-flex items-center px-3.5 py-1.5 border border-[#DEDEDE] text-xs font-mono font-medium text-[#111111] hover:bg-[#F3F3F3] transition-colors"
               title="Unduh CV (PDF)"
             >
-              <span>Unduh CV</span>
+              Resume (PDF)
             </a>
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 shadow-md shadow-indigo-600/20 transition-all transform hover:-translate-y-0.5"
+              className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-[#111111] text-[#FFFFFF] text-xs font-medium hover:bg-[#333333] transition-colors"
             >
-              <span>Hubungi</span>
+              <span>Get in Touch</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Menu Button */}
           <div className="flex md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10 focus:outline-none"
+              className="p-2 border border-[#DEDEDE] text-[#111111] hover:bg-[#F3F3F3] focus:outline-none"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -136,8 +124,8 @@ export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0a0f1d]/95 backdrop-blur-xl border-b border-white/10 px-4 pt-3 pb-6 animate-in slide-in-from-top duration-200">
-          <div className="flex flex-col gap-2">
+        <div className="md:hidden bg-[#FFFFFF] border-b border-[#DEDEDE] px-4 pt-4 pb-6 transition-all">
+          <div className="flex flex-col space-y-3">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.replace('#', '');
               return (
@@ -145,32 +133,32 @@ export const Navbar: React.FC<NavbarProps> = ({ personal }) => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-3 py-2 text-sm font-mono uppercase tracking-wider transition-colors ${
                     isActive
-                      ? 'text-white bg-indigo-600/30 border border-indigo-500/30'
-                      : 'text-slate-300 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#F3F3F3] text-[#111111] font-semibold border-l-2 border-[#111111]'
+                      : 'text-[#777777] hover:text-[#111111] hover:bg-[#FAFAFA]'
                   }`}
                 >
                   {link.name}
                 </a>
               );
             })}
-            <div className="pt-2 flex flex-col gap-2">
+            <div className="pt-3 border-t border-[#DEDEDE] flex flex-col gap-2">
               <a
                 href="/resume-abdul-hamid-alghazali.pdf"
                 download="Resume_Abdul_Hamid_Al_Ghazali.pdf"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-200 bg-white/10 border border-white/10 hover:bg-white/15 transition-colors"
+                className="w-full flex items-center justify-center py-2.5 border border-[#DEDEDE] text-xs font-mono font-medium text-[#111111] hover:bg-[#F3F3F3] transition-colors"
               >
-                <span>Unduh Resume (PDF)</span>
+                Unduh Resume (PDF)
               </a>
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-colors shadow-md shadow-indigo-600/30"
+                className="w-full flex items-center justify-center gap-1.5 py-2.5 bg-[#111111] text-[#FFFFFF] text-xs font-medium hover:bg-[#333333] transition-colors"
               >
                 <span>Hubungi Saya</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>

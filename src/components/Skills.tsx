@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Cpu, Sparkles, Layers, CheckCircle2 } from 'lucide-react';
-import { motion } from 'framer-motion';
 import type { SkillCategory } from '../types/portfolio';
 import { ScrollReveal } from './ScrollReveal';
 
@@ -9,126 +7,126 @@ interface SkillsProps {
 }
 
 export const Skills: React.FC<SkillsProps> = ({ categories }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [activeTab, setActiveTab] = useState<string>('All');
 
-  const categoryNames = ['All', ...categories.map((c) => c.category)];
+  const tabNames = ['All', ...categories.map((c) => c.category)];
 
   const displayedCategories =
-    selectedCategory === 'All'
+    activeTab === 'All'
       ? categories
-      : categories.filter((c) => c.category === selectedCategory);
+      : categories.filter((c) => c.category === activeTab);
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="skills" className="py-24 border-b border-[#DEDEDE] bg-[#FFFFFF]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header with ScrollReveal */}
+        {/* Section Editorial Header */}
         <ScrollReveal>
-          <div className="flex flex-col items-center text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-mono mb-3 shadow-[0_0_12px_rgba(56,189,248,0.15)]">
-              <Cpu className="w-3.5 h-3.5" />
-              <span>KEAHLIAN TEKNIS // TECH STACK</span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#111111] mb-12">
+            <div>
+              <div className="text-xs font-mono uppercase tracking-widest text-[#777777] mb-2">
+                [05 // TECHNICAL TOOLKIT]
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-bold text-[#111111] uppercase tracking-tight">
+                Technical Skills
+              </h2>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-              Stack Teknologi &amp; <span className="gradient-text-accent">Tooling Modern</span>
-            </h2>
-            <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl">
-              Perangkat dan teknologi teruji yang digunakan dalam membangun sistem nyata, otomasi bisnis, dan antarmuka web modern.
-            </p>
+            
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <p className="text-xs sm:text-sm text-[#777777] max-w-md font-sans">
+                Teknologi yang telah diimplementasikan dalam pengembangan proyek nyata dan fondasi akademik.
+              </p>
 
-            {/* Filter Tabs */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
-              {categoryNames.map((name) => {
-                const isSelected = selectedCategory === name;
-                return (
-                  <button
-                    key={name}
-                    onClick={() => setSelectedCategory(name)}
-                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all ${
-                      isSelected
-                        ? 'bg-gradient-to-r from-sky-500 to-indigo-600 text-white shadow-lg shadow-sky-500/25 border border-sky-400/40'
-                        : 'bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 border border-white/5'
-                    }`}
-                  >
-                    {name === 'All' ? 'Semua Kategori' : name}
-                  </button>
-                );
-              })}
+              {/* Minimalist Filter Tabs */}
+              <div className="flex flex-wrap items-center gap-1 border border-[#DEDEDE] p-1 bg-[#F3F3F3]">
+                {tabNames.map((name) => {
+                  const isSelected = activeTab === name;
+                  return (
+                    <button
+                      key={name}
+                      onClick={() => setActiveTab(name)}
+                      className={`px-3 py-1 text-xs font-mono transition-colors ${
+                        isSelected
+                          ? 'bg-[#111111] text-[#FFFFFF] font-semibold'
+                          : 'text-[#777777] hover:text-[#111111]'
+                      }`}
+                    >
+                      {name === 'All' ? 'All Stacks' : name}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </ScrollReveal>
 
-        {/* Categories Grid with Scroll Animation */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
-          {displayedCategories.map((cat, idx) => (
-            <ScrollReveal key={idx} direction="up" delay={idx * 0.1}>
-              <motion.div
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.2 }}
-                className="glass-panel p-6 sm:p-7 rounded-3xl flex flex-col justify-between shadow-xl border border-white/10 hover:border-cyan-500/30 hover:shadow-[0_0_25px_rgba(56,189,248,0.12)] transition-all h-full"
-              >
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2.5">
-                    <div className="p-2 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
-                      <Layers className="w-5 h-5" />
+        {/* Categories Grid (Clean Editorial Multi-Column List) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          {displayedCategories.map((cat, idx) => {
+            const catIndex = String(idx + 1).padStart(2, '0');
+
+            return (
+              <ScrollReveal key={cat.category} direction="up" delay={idx * 0.1}>
+                <div className="border border-[#DEDEDE] bg-[#FFFFFF] p-6 sm:p-8 space-y-6 hover:border-[#111111] transition-colors">
+                  {/* Category Title & Index */}
+                  <div className="flex items-start justify-between pb-4 border-b border-[#DEDEDE]">
+                    <div>
+                      <span className="text-xs font-mono text-[#777777] block mb-1">
+                        INDEX // {catIndex}
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-bold text-[#111111]">
+                        {cat.category}
+                      </h3>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white">
-                      {cat.category}
-                    </h3>
+                    <span className="text-xs font-mono text-[#777777] px-2 py-1 bg-[#F3F3F3] border border-[#DEDEDE]">
+                      {cat.items.length} Skills
+                    </span>
                   </div>
-                  <span className="text-xs font-mono text-slate-400 bg-white/5 px-2.5 py-1 rounded-full border border-white/5">
-                    {cat.items.length} Teknologi
-                  </span>
-                </div>
-                
-                <p className="text-xs sm:text-sm text-slate-400 mb-6">
-                  {cat.description}
-                </p>
 
-                {/* Modern Scannable Skill Badges */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {cat.items.map((skill, sIdx) => (
-                    <div
-                      key={sIdx}
-                      className={`p-3 rounded-xl border transition-all flex items-center justify-between gap-2 ${
-                        skill.highlight
-                          ? 'bg-indigo-500/10 border-indigo-500/30 text-white shadow-sm shadow-indigo-500/10'
-                          : 'bg-white/[0.03] border-white/5 text-slate-300 hover:border-white/15 hover:bg-white/[0.06]'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2 min-w-0">
-                        <CheckCircle2
-                          className={`w-4 h-4 shrink-0 ${
-                            skill.highlight ? 'text-indigo-400' : 'text-emerald-400'
-                          }`}
-                        />
-                        <span className="text-xs sm:text-sm font-medium truncate">
-                          {skill.name}
-                        </span>
+                  <p className="text-xs sm:text-sm text-[#777777]">
+                    {cat.description}
+                  </p>
+
+                  {/* Skills Table / List without arbitrary percentage bars */}
+                  <div className="divide-y divide-[#DEDEDE] border-y border-[#DEDEDE]">
+                    {cat.items.map((skill, sIdx) => (
+                      <div
+                        key={sIdx}
+                        className="py-2.5 flex items-center justify-between text-xs sm:text-sm"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="text-xs font-mono text-[#777777] w-6">
+                            {String(sIdx + 1).padStart(2, '0')}
+                          </span>
+                          <span className="font-medium text-[#111111]">
+                            {skill.name}
+                          </span>
+                        </div>
+
+                        {skill.highlight ? (
+                          <span className="text-[10px] font-mono uppercase px-2 py-0.5 border border-[#111111] bg-[#111111] text-[#FFFFFF]">
+                            Primary Focus
+                          </span>
+                        ) : (
+                          <span className="text-[10px] font-mono text-[#777777] uppercase">
+                            Proficient
+                          </span>
+                        )}
                       </div>
+                    ))}
+                  </div>
 
-                      {skill.highlight && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 font-mono shrink-0">
-                          <Sparkles className="w-2.5 h-2.5 text-indigo-400" />
-                          Core
-                        </span>
-                      )}
-                    </div>
-                  ))}
+                  <div className="flex items-center justify-between text-[11px] font-mono text-[#777777]">
+                    <span>STATUS: VALIDATED IN CODEBASE</span>
+                    <span className="text-[#111111] font-semibold">ACTIVE</span>
+                  </div>
                 </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                <span>Status: Teruji di Proyek & Akademik</span>
-                <span className="text-emerald-400">✓ Aktif Digunakan</span>
-              </div>
-            </motion.div>
-          </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );
 };
-

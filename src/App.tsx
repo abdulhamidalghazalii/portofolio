@@ -10,44 +10,40 @@ import { Credentials } from './components/Credentials';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
-import { ParallaxBackground } from './components/ParallaxBackground';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 flex flex-col selection:bg-cyan-500/30 selection:text-cyan-200 relative overflow-x-hidden">
-      {/* Top Futuristic Scroll Progress Indicator */}
+    <div className="min-h-screen bg-[#FFFFFF] text-[#111111] flex flex-col selection:bg-[#111111] selection:text-[#FFFFFF] relative overflow-x-hidden antialiased">
+      {/* Editorial Hairline Scroll Progress Indicator */}
       <ScrollProgress />
-
-      {/* Interactive Multi-Layer Parallax Background */}
-      <ParallaxBackground />
 
       {/* Navigation Header */}
       <Navbar personal={portfolioData.personal} />
 
       {/* Main Content Area */}
       <main className="flex-1 w-full relative z-10">
-        {/* 1. Hero Section with 3D Canvas */}
+        {/* 1. Hero Section - Bold Editorial Typography */}
         <Hero personal={portfolioData.personal} />
 
-        {/* 2. About & Core Capabilities Section */}
-        <About personal={portfolioData.personal} />
-
-        {/* 3. Projects Showcase (Put tangible work early) */}
+        {/* 2. Projects Showcase - Focus Utama Portfolio */}
         <Projects projects={portfolioData.projects} />
 
-        {/* 4. Practical Work Experience (PKL PT BOLTZ INDONESIA) */}
+        {/* 3. About Section - Authentic Narrative & Foundations */}
+        <About personal={portfolioData.personal} />
+
+        {/* 4. Practical Work Experience (PT Botz Indonesia) */}
         <Experience experiences={portfolioData.experiences} />
 
-        {/* 5. Technical Skills & Modern Tooling */}
+        {/* 5. Technical Skills - Structured Editorial List */}
         <Skills categories={portfolioData.skillCategories} />
 
-        {/* 6. Unified Credentials: Education & Certifications */}
+        {/* 6. Credentials: Education & Certifications */}
         <Credentials
           education={portfolioData.education}
           certifications={portfolioData.certifications}
         />
 
-        {/* 7. Contact & Direct Inquiry Section */}
+        {/* 7. Contact Section */}
         <Contact personal={portfolioData.personal} />
       </main>
 

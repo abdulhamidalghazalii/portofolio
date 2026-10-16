@@ -1,6 +1,4 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin, CheckCircle2, Building2 } from 'lucide-react';
-import { motion } from 'framer-motion';
 import type { ExperienceItem } from '../types/portfolio';
 import { ScrollReveal } from './ScrollReveal';
 
@@ -10,126 +8,114 @@ interface ExperienceProps {
 
 export const Experience: React.FC<ExperienceProps> = ({ experiences }) => {
   return (
-    <section id="experience" className="py-24 relative overflow-hidden z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="experience" className="py-24 border-b border-[#DEDEDE] bg-[#FFFFFF]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header with ScrollReveal */}
+        {/* Section Header */}
         <ScrollReveal>
-          <div className="flex flex-col items-center text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono mb-3 shadow-[0_0_12px_rgba(52,211,153,0.15)]">
-              <Briefcase className="w-3.5 h-3.5" />
-              <span>PENGALAMAN KERJA // CAREER</span>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#111111] mb-12">
+            <div>
+              <div className="text-xs font-mono uppercase tracking-widest text-[#777777] mb-2">
+                [04 // PROFESSIONAL RECORD]
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-bold text-[#111111] uppercase tracking-tight">
+                Experience
+              </h2>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-              Pengalaman &amp; <span className="gradient-text-accent">Kontribusi Nyata</span>
-            </h2>
-            <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl">
-              Pengalaman praktis dalam merancang, membangun, dan mendistribusikan sistem web terpadu untuk operasional perusahaan.
+            <p className="text-xs sm:text-sm text-[#777777] max-w-md font-sans">
+              Pengalaman kerja praktis dalam perancangan, pengembangan sistem, dan deployment aplikasi web di lingkungan industri.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Timeline Container */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical Glowing Timeline Line */}
-          <div className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-sky-400 via-indigo-500 to-purple-500 -translate-x-1/2 opacity-50 shadow-[0_0_8px_#38bdf8]" />
+        {/* Editorial Experience List */}
+        <div className="space-y-12">
+          {experiences.map((exp, index) => {
+            const expIndex = String(index + 1).padStart(2, '0');
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => {
-              const isEven = index % 2 === 0;
-
-              return (
-                <div
-                  key={exp.id}
-                  className={`relative flex flex-col sm:flex-row items-start ${
-                    isEven ? 'sm:flex-row-reverse' : ''
-                  }`}
-                >
-                  {/* Timeline Center Node */}
-                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-[#030712] border-2 border-cyan-400 flex items-center justify-center z-10 shadow-[0_0_12px_#38bdf8]">
-                    <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
+            return (
+              <ScrollReveal key={exp.id} direction="up" delay={0.1}>
+                <article className="border border-[#DEDEDE] bg-[#FFFFFF] transition-all hover:border-[#111111]">
+                  {/* Top Metadata Header */}
+                  <div className="flex flex-wrap items-center justify-between px-6 py-3 border-b border-[#DEDEDE] bg-[#F3F3F3] text-xs font-mono">
+                    <div className="flex items-center gap-3">
+                      <span className="font-bold text-[#111111]">RECORD {expIndex}</span>
+                      <span className="text-[#DEDEDE]">&bull;</span>
+                      <span className="text-[#111111]">{exp.company}</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-[#777777]">
+                      <span>{exp.period}</span>
+                      <span>/</span>
+                      <span className="text-[#111111]">{exp.location}</span>
+                    </div>
                   </div>
 
-                  {/* Empty spacer for alternating grid on desktop */}
-                  <div className="hidden sm:block sm:w-1/2" />
-
-                  {/* Content Card with ScrollReveal */}
-                  <div
-                    className={`w-full sm:w-1/2 pl-12 sm:pl-0 ${
-                      isEven ? 'sm:pr-10' : 'sm:pl-10'
-                    }`}
-                  >
-                    <ScrollReveal direction={isEven ? 'left' : 'right'} delay={0.1}>
-                      <motion.div
-                        whileHover={{ y: -4, scale: 1.01 }}
-                        transition={{ duration: 0.2 }}
-                        className="glass-panel p-6 sm:p-7 rounded-3xl border border-white/10 hover:border-cyan-500/30 shadow-xl space-y-4 hover:shadow-[0_0_25px_rgba(56,189,248,0.15)] transition-all"
-                      >
-                      
-                      {/* Top Badges */}
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
-                          <Calendar className="w-3.5 h-3.5" />
-                          {exp.period}
-                        </span>
-                        <span className="text-[11px] font-mono text-slate-400 bg-white/5 px-2.5 py-0.5 rounded-full">
-                          {exp.type}
-                        </span>
-                      </div>
-
-                      {/* Role & Company */}
+                  {/* Body Content */}
+                  <div className="p-6 sm:p-8 space-y-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#DEDEDE]">
                       <div>
-                        <h3 className="text-xl font-bold text-white tracking-tight">
+                        <h3 className="text-2xl sm:text-3xl font-bold text-[#111111] tracking-tight">
                           {exp.role}
                         </h3>
-                        <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-300 mt-1">
-                          <span className="flex items-center gap-1 font-semibold text-indigo-400">
-                            <Building2 className="w-3.5 h-3.5" />
-                            {exp.company}
-                          </span>
-                          <span className="flex items-center gap-1 text-slate-400">
-                            <MapPin className="w-3.5 h-3.5" />
-                            {exp.location}
-                          </span>
+                        <div className="text-xs font-mono text-[#777777] mt-1">
+                          {exp.company} &mdash; <span className="text-[#111111] font-semibold">{exp.type}</span>
                         </div>
                       </div>
 
-                      <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                        {exp.description}
-                      </p>
+                      <span className="inline-block px-3 py-1 text-xs font-mono border border-[#DEDEDE] bg-[#FFFFFF] text-[#111111] self-start sm:self-auto">
+                        {exp.period}
+                      </span>
+                    </div>
 
-                      {/* Key Achievements */}
-                      <div className="space-y-2 pt-2 border-t border-white/5">
-                        <div className="text-xs font-mono text-slate-400 uppercase tracking-wider">
-                          Pencapaian Utama:
-                        </div>
+                    {/* Scope & Role Narrative */}
+                    <p className="text-sm sm:text-base text-[#333333] leading-relaxed max-w-3xl">
+                      {exp.description}
+                    </p>
+
+                    {/* Key Contributions & Achievements */}
+                    <div className="space-y-3 pt-2">
+                      <div className="text-xs font-mono uppercase tracking-wider text-[#777777]">
+                        [TANGGUNG JAWAB &amp; PENCAPAIAN UTAMA]
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm text-[#111111]">
                         {exp.achievements.map((ach, aIdx) => (
-                          <div key={aIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300">
-                            <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                            <span>{ach}</span>
+                          <div
+                            key={aIdx}
+                            className="p-3.5 border border-[#DEDEDE] bg-[#F9F9F9] flex items-start gap-2.5"
+                          >
+                            <span className="font-mono font-bold text-[#777777] text-xs">
+                              0{aIdx + 1}.
+                            </span>
+                            <span className="leading-snug">{ach}</span>
                           </div>
                         ))}
                       </div>
+                    </div>
 
-                      {/* Tech Used */}
-                      <div className="flex flex-wrap gap-1.5 pt-2">
+                    {/* Technologies Deployed */}
+                    <div className="pt-4 border-t border-[#DEDEDE]">
+                      <span className="text-[11px] font-mono uppercase text-[#777777] block mb-2">
+                        Teknologi &amp; Tools yang Digunakan:
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
                         {exp.technologies.map((tech, tIdx) => (
                           <span
                             key={tIdx}
-                            className="px-2 py-0.5 rounded text-[11px] font-mono bg-white/5 text-slate-300 border border-white/5"
+                            className="px-2.5 py-1 text-xs font-mono bg-[#F3F3F3] text-[#111111] border border-[#DEDEDE]"
                           >
                             {tech}
                           </span>
                         ))}
                       </div>
-                      </motion.div>
-                    </ScrollReveal>
+                    </div>
+
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                </article>
+              </ScrollReveal>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );
